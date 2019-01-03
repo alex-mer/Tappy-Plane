@@ -1,28 +1,42 @@
 {
+  "cocos-analytics": {
+    "appID": "13798",
+    "appSecret": "959b3ac0037d0f3c2fdce94f8421a9b2",
+    "channel": "",
+    "enable": false,
+    "version": ""
+  },
   "collision-matrix": [
     [
+      false
+    ],
+    [
+      false,
+      false,
       true
+    ],
+    [
+      false,
+      true,
+      false
     ]
   ],
-  "excluded-modules": [],
-  "group-list": [
-    "default"
-  ],
-  "start-scene": "current",
-  "design-resolution-width": 960,
   "design-resolution-height": 640,
-  "fit-width": false,
+  "design-resolution-width": 960,
+  "excluded-modules": [],
   "fit-height": true,
-  "use-project-simulator-setting": false,
-  "simulator-orientation": false,
-  "use-customize-simulator": false,
+  "fit-width": false,
+  "group-list": [
+    "default",
+    "Plane",
+    "Ground"
+  ],
+  "simulator-orientation": true,
   "simulator-resolution": {
-    "width": 960,
-    "height": 640
+    "height": 640,
+    "width": 960
   },
-  "cocos-analytics": {
-    "enable": false,
-    "appID": "13798",
-    "appSecret": "959b3ac0037d0f3c2fdce94f8421a9b2"
-  }
+  "start-scene": "a5ef60a0-696f-419c-8b5f-cb79e822b845",
+  "use-customize-simulator": false,
+  "use-project-simulator-setting": true
 }
