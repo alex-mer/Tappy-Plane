@@ -1,4 +1,5 @@
 const {ccclass, property} = cc._decorator;
+import StartScreen from "./StartScreen";
 
 @ccclass
 export default class Plane extends cc.Component {
@@ -15,13 +16,20 @@ export default class Plane extends cc.Component {
     @property(Number)
     rotation: number = 1;
 
+	@property(StartScreen)
+	startScreen: StartScreen = null;
+
     public update(): void {
-        this.node.y -= this.gravity;
+	    if( this.startScreen.getVisibled() ) return;
+
+	    this.node.y -= this.gravity;
         this.node.rotation += this.rotation;
     }
 
     public onTap(): void {
-        const rotation = cc.rotateTo(0.3, -25).easing(cc.easeCubicActionOut());
+	    if( this.startScreen.getVisibled() ) return;
+
+	    const rotation = cc.rotateTo(0.3, -25).easing(cc.easeCubicActionOut());
         const up = cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
 
         this.node.runAction(rotation);
