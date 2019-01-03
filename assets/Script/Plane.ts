@@ -4,13 +4,13 @@ const {ccclass, property} = cc._decorator;
 export default class Plane extends cc.Component {
 
     @property(Number)
-    jumpHeight: number = 300;
+    jumpHeight: number = 40;
 
     @property(Number)
     jumpDuration: number = 0.3;
 
     @property(Number)
-    gravity: number = 5;
+    gravity: number = 2;
 
     @property(Number)
     rotation: number = 1;
