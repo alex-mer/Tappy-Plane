@@ -10,10 +10,13 @@ export default class Main extends cc.Component {
 
     public start (): void {
         this.node.on(cc.Node.EventType.TOUCH_START, this.plane.onTap, this.plane);
+        console.log(this.plane);
     }
 
     public update (dt) {
+        /*if(cc.Intersection.rectRect()) {
 
+        }*/
     }
 
     public onDestroy() {
