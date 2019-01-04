@@ -14,9 +14,17 @@ export default class Main extends cc.Component {
     ground: cc.Node = null;
 
     @property(cc.Node)
+    scoreLabel: cc.Node = null;
+
+    @property(cc.Node)
+    topScoreLabel: cc.Node = null;
+
+    @property(cc.Node)
     startScreen: cc.Node = null;
 
     public state: string = 'start';
+    public score: number = 0;
+    public topScore: number = 0;
 
     public start (): void {
         this.node.on(cc.Node.EventType.TOUCH_START, this._startGame, this);
@@ -36,6 +44,15 @@ export default class Main extends cc.Component {
         }
     }
 
+    public updateScore(): void {
+        this.score += 0.5;
+        this.scoreLabel.getComponent(cc.Label).string = String(this.score);
+
+        if(this.score > this.topScore) {
+            this.topScore = this.score;
+        }
+    }
+
     public gameOver(): void {
         this.state = 'end';
 
@@ -51,6 +68,8 @@ export default class Main extends cc.Component {
         }
         
         this.startScreen.active = true;
+        this.scoreLabel.active = false;
+        this.topScoreLabel.getComponent(cc.Label).string = 'Top Score ' + this.topScore;
 
         this.node.off(cc.Node.EventType.TOUCH_START, this.plane.onTap, this.plane);
         this.node.on(cc.Node.EventType.TOUCH_START, this._startGame, this);
@@ -59,6 +78,10 @@ export default class Main extends cc.Component {
     private _startGame(): void {
         this.state = 'game';
         this.startScreen.active = false;
+        this.scoreLabel.active = true;
+
+        this.score = 0;
+        this.scoreLabel.getComponent(cc.Label).string = String(this.score);
 
         this.node.off(cc.Node.EventType.TOUCH_START, this._startGame, this);
         this.node.on(cc.Node.EventType.TOUCH_START, this.plane.onTap, this.plane);

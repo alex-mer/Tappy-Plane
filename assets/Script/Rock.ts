@@ -12,6 +12,7 @@ export default class Ground extends cc.Component {
 
     private _startX: number = 0;
     private _startY: number = 0;
+    private _active: boolean =  true;
 
     onLoad () {
         cc.director.getCollisionManager().enabled = true;
@@ -22,8 +23,14 @@ export default class Ground extends cc.Component {
 
     public onUpdate (dt) {
         this.node.setPosition(this.node.position.x -= this.speed * dt, this.node.position.y);
-        if( this.node.position.x < -650) {
+        if(this.node.position.x < -650) {
             this.node.setPosition(1100, this._startY);
+            this._active = true;
+        }
+        
+        if(this._active && this.node.position.x < -90) {
+            this.main.updateScore();
+            this._active = false;
         }
     }
 
@@ -33,5 +40,6 @@ export default class Ground extends cc.Component {
     
     public toStart(): void {
         this.node.setPosition(this._startX, this._startY);
+        this._active = true;
     }
 }
