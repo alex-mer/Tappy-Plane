@@ -43,6 +43,12 @@ export default class Main extends cc.Component {
         this.plane.node.x = 480;
         this.plane.node.y = 320;
         this.plane.node.rotation = 0;
+
+        for (let i = 0; i < this.ground.children.length; i++) {
+            if (this.ground.children[i].getComponent(Rock)) {
+                this.ground.children[i].getComponent(Rock).toStart();
+            }
+        }
         
         this.startScreen.active = true;
 

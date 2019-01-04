@@ -23,5 +23,5 @@ export default class Ground extends cc.Component {
 
 	public onCollisionEnter() {
         this.main.gameOver();
-	}
+    }
 }
