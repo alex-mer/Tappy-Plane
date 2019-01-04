@@ -39,6 +39,7 @@ export default class Main extends cc.Component {
     public gameOver(): void {
         this.state = 'end';
 
+        this.plane.stopActions();
         this.plane.node.x = 480;
         this.plane.node.y = 320;
         this.plane.node.rotation = 0;

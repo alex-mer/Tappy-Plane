@@ -20,6 +20,10 @@ export default class Plane extends cc.Component {
         this.node.rotation += this.rotation;
     }
 
+    public stopActions(): void {
+	    this.node.stopAllActions();
+    }
+
     public onTap(): void {
 	    const rotation = cc.rotateTo(0.3, -25).easing(cc.easeCubicActionOut());
         const up = cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
