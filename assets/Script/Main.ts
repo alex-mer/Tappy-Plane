@@ -2,6 +2,7 @@ const {ccclass, property} = cc._decorator;
 
 import Plane from "./Plane";
 import Ground from "./Ground";
+import Rock from "./Rock";
 
 @ccclass
 export default class Main extends cc.Component {
@@ -26,7 +27,11 @@ export default class Main extends cc.Component {
             this.plane.onUpdate();
 
             for (let i = 0; i < this.ground.children.length; i++) {
-                this.ground.children[i].getComponent(Ground).onUpdate(dt);
+                if (this.ground.children[i].getComponent(Ground)) {
+                    this.ground.children[i].getComponent(Ground).onUpdate(dt);
+                } else {
+                    this.ground.children[i].getComponent(Rock).onUpdate(dt);
+                }
             }
         }
     }

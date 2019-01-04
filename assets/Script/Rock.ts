@@ -16,8 +16,8 @@ export default class Ground extends cc.Component {
 
     public onUpdate (dt) {
         this.node.setPosition( this.node.position.x -= this.speed * dt, this.node.position.y);
-        if( this.node.position.x <= -(this.node.width) ) {
-	        this.node.setPosition(2 * this.node.width + this.node.position.x, this.node.position.y);
+        if( this.node.position.x < -650) {
+            this.node.setPosition(650, this.node.position.y);
         }
     }
 
