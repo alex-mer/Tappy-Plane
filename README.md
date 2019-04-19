@@ -1,2 +1,2 @@
 # Flappy Bird
-flappy-bird
+In this repository, the game is flappy bird written using different technologies
