@@ -1,10 +1,19 @@
 import Model from "../Model/Model";
 import View from "../View/View";
+import GroundController from "./GroundController";
+import PlaneController from "./PlaneController";
+import RockController from "./RockController";
+import ScoreController from "./ScoreController";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class Controller {
+    public groundController: GroundController = null;
+    public planeController: PlaneController = null;
+    public rockController: RockController = null;
+    public scoreController: ScoreController = null;
+
     private _model: Model = null;
     private _view: View = null;
 
@@ -12,78 +21,45 @@ export default class Controller {
         this._model = model;
         this._view = view;
 
-        this._model.node.on(cc.Node.EventType.TOUCH_START, this._startGame, this);
-        this._model.rock.node.on('update-score', this.onUpdateScore, this);
-        this._view.plane.onCollisionEnter = this._gameOver.bind(this);
+        this.groundController = new GroundController(this._model.ground, [this._view.groundBottom1, this._view.groundBottom2, 
+                                                                           this._view.groundTop1, this._view.groundTop2]);
+        this.planeController = new PlaneController(this._model.plane, this._view.plane);
+        this.rockController = new RockController(this._model.rock, this._view.rock);
+        this.scoreController = new ScoreController(this._model.score, this._view.score);
     }
 
     public update(dt: number): void {
         if(this._model.state === 'game') {
-            this._view.groundBottom1.setX( this._model.ground.updatePosition(this._view.groundBottom1.node, dt) );
-            this._view.groundBottom2.setX( this._model.ground.updatePosition(this._view.groundBottom2.node, dt) );
-            this._view.groundTop1.setX( this._model.ground.updatePosition(this._view.groundTop1.node, dt) );
-            this._view.groundTop2.setX( this._model.ground.updatePosition(this._view.groundTop2.node, dt) );
-            this._view.plane.setAngle( this._model.plane.updateRotation(this._view.plane.node) );
-            this._view.plane.setY( this._model.plane.updatePosition(this._view.plane.node) );
-            this._view.rock.setPosition( this._model.rock.updatePosition(this._view.rock.node, dt) );
+            this.groundController.update(dt);
+            this.planeController.update(dt);
+            this.rockController.update(dt);
         }
     }
 
-    public onUpdateScore(): void {
-        this._model.score.updateScore();
-        this._view.score.set( this._model.score.score);
-    }
-
-    private _startGame(): void {
-        this._model.node.off(cc.Node.EventType.TOUCH_START, this._startGame, this);
-        this._model.node.on(cc.Node.EventType.TOUCH_START, this._onTap, this);
-
-        this._view.startScreen.startGame();
-
+    public startGame(): void {
         this._model.state = 'game';
-
-        this._view.plane.playAnimation();
-        this._view.plane.playSound();
-
-        this._view.score.show();
+        this._view.startScreen.startGame();
+        this.planeController.startGame();
+        this.scoreController.startGame();
     }
 
-    private _gameOver(): void {
+    public gameOver(): void {
         this._model.state = 'end';
-        this._model.score.restartScore();
-
+        this.scoreController.gameOver();
+        this.planeController.gameOver();
         this._view.camera.vibration();
-
-        this._model.node.off(cc.Node.EventType.TOUCH_START, this._onTap, this._view.plane);
-
-        this._view.plane.hide();
-
         this._view.explosion.playAnimation();
         this._view.explosion.show();
         this._view.explosion.setPosition(this._view.plane.node.x, this._view.plane.node.y);
         this._view.explosion.playSound();
-
-        this._model.scheduleOnce(() => {
-            this._restart();
-        }, 0.5);
     }
 
-    private _restart(): void {
-        this._model.plane.stopPlaneActions(this._view.plane.node);
-        this._view.plane.restart();
-
+    public restart(): void {
+        this.planeController.restart();
+        this.rockController.restart();
+        this.scoreController.restart();
         this._view.startScreen.show();
         this._view.startScreen.updateTopScore(this._model.score.topScore);
-        this._view.score.hide();
-
         this._view.explosion.hide();
-
-        this._view.rock.setPosition( this._model.rock.toStart() );
-
-        this._model.node.on(cc.Node.EventType.TOUCH_START, this._startGame, this);
-    }
-
-    private _onTap(): void {
-        this._model.plane.onTap(this._view.plane.node);
     }
 }
