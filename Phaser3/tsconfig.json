@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "CommonJS",
+    "sourceMap": false,
+    "noImplicitAny": false,
+    "strict": false
+  },
+
+  "include": [
+    "assets/Source/typing.d.ts",
+    "assets/Source/**/*"
+  ],
+}
