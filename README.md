@@ -1,3 +1,3 @@
 # Tappy Plane
-In this repository, the game is flappy bird written using different technologies
+In this repository, the game is tappy plane written using different technologies
 ![Alt text](sample.png)
