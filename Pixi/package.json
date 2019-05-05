@@ -1,8 +1,7 @@
 {
-  "name": "pixi-project",
+  "name": "flappy-bird",
   "version": "1.0.0",
   "main": "App.ts",
-  "repository": "https://github.com/alex-mer/pixi-started.git",
   "author": "Alex <alex.merckotan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
