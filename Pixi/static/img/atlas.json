@@ -1,0 +1,160 @@
+{
+  "frames": {
+    "bg.png": {
+      "frame": { "x": 0, "y": 0, "w": 256, "h": 256 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 256, "h": 256 },
+      "sourceSize": { "w": 256, "h": 256 }
+    },
+    "enemyBlack1.png": {
+      "frame": { "x": 0, "y": 256, "w": 93, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 93, "h": 84 },
+      "sourceSize": { "w": 93, "h": 84 }
+    },
+    "enemyBlack2.png": {
+      "frame": { "x": 93, "y": 256, "w": 104, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 104, "h": 84 },
+      "sourceSize": { "w": 104, "h": 84 }
+    },
+    "enemyBlack3.png": {
+      "frame": { "x": 0, "y": 340, "w": 103, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 103, "h": 84 },
+      "sourceSize": { "w": 103, "h": 84 }
+    },
+    "enemyBlack4.png": {
+      "frame": { "x": 103, "y": 340, "w": 82, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 82, "h": 84 },
+      "sourceSize": { "w": 82, "h": 84 }
+    },
+    "enemyBlack5.png": {
+      "frame": { "x": 0, "y": 424, "w": 97, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 97, "h": 84 },
+      "sourceSize": { "w": 97, "h": 84 }
+    },
+    "enemyBlue1.png": {
+      "frame": { "x": 97, "y": 424, "w": 93, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 93, "h": 84 },
+      "sourceSize": { "w": 93, "h": 84 }
+    },
+    "enemyBlue2.png": {
+      "frame": { "x": 0, "y": 508, "w": 104, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 104, "h": 84 },
+      "sourceSize": { "w": 104, "h": 84 }
+    },
+    "enemyBlue3.png": {
+      "frame": { "x": 104, "y": 508, "w": 103, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 103, "h": 84 },
+      "sourceSize": { "w": 103, "h": 84 }
+    },
+    "enemyBlue4.png": {
+      "frame": { "x": 0, "y": 592, "w": 82, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 82, "h": 84 },
+      "sourceSize": { "w": 82, "h": 84 }
+    },
+    "enemyBlue5.png": {
+      "frame": { "x": 82, "y": 592, "w": 97, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 97, "h": 84 },
+      "sourceSize": { "w": 97, "h": 84 }
+    },
+    "enemyGreen1.png": {
+      "frame": { "x": 0, "y": 676, "w": 93, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 93, "h": 84 },
+      "sourceSize": { "w": 93, "h": 84 }
+    },
+    "enemyGreen2.png": {
+      "frame": { "x": 93, "y": 676, "w": 104, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 104, "h": 84 },
+      "sourceSize": { "w": 104, "h": 84 }
+    },
+    "enemyGreen3.png": {
+      "frame": { "x": 0, "y": 760, "w": 103, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 103, "h": 84 },
+      "sourceSize": { "w": 103, "h": 84 }
+    },
+    "enemyGreen4.png": {
+      "frame": { "x": 103, "y": 760, "w": 82, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 82, "h": 84 },
+      "sourceSize": { "w": 82, "h": 84 }
+    },
+    "enemyGreen5.png": {
+      "frame": { "x": 0, "y": 844, "w": 97, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 97, "h": 84 },
+      "sourceSize": { "w": 97, "h": 84 }
+    },
+    "enemyRed1.png": {
+      "frame": { "x": 97, "y": 844, "w": 93, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 93, "h": 84 },
+      "sourceSize": { "w": 93, "h": 84 }
+    },
+    "enemyRed2.png": {
+      "frame": { "x": 0, "y": 928, "w": 104, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 104, "h": 84 },
+      "sourceSize": { "w": 104, "h": 84 }
+    },
+    "enemyRed3.png": {
+      "frame": { "x": 104, "y": 928, "w": 103, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 103, "h": 84 },
+      "sourceSize": { "w": 103, "h": 84 }
+    },
+    "enemyRed4.png": {
+      "frame": { "x": 0, "y": 1012, "w": 82, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 82, "h": 84 },
+      "sourceSize": { "w": 82, "h": 84 }
+    },
+    "enemyRed5.png": {
+      "frame": { "x": 82, "y": 1012, "w": 97, "h": 84 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 97, "h": 84 },
+      "sourceSize": { "w": 97, "h": 84 }
+    }
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "atlas.png",
+    "format": "RGBA8888",
+    "size": { "w": 256, "h": 1096 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:470fa5f2ed2a09b7a66b978ae9e58a8a:c279f2d43ae3b15de77826aa82669251:cbce6b53f0f49e0bf15173c25c41f876$"
+  }
+}
