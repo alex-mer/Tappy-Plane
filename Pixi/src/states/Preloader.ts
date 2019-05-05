@@ -9,7 +9,7 @@ export default class Preloader extends StateBase {
       .addToStage(this, this.foregroundGroup);
     loading.style.align = "center";
 
-    this.app.load.sprite(["static/img/bg.png", "static/img/atlas.json"]);
+    this.app.load.sprite(["static/img/atlas.json"]);
     this.app.load.onLoad((progress: number) => {
       loading.text = progress + "%";
     });
