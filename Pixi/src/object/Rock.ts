@@ -20,18 +20,28 @@ export default class Rock extends Sprite {
 
     this.scale.set(1.5);
 
+    const phys = parent.app.physics;
+    phys.addBody(this, { density: 10.0, position: phys.vec2(0.0, 0.0) });
+    this.body.setStatic();
+
     this.addToStage(parent, group);
   }
 
   public move() {
-    if (this.x < this._endPosition) {
+    if (this.body.getPosition().x * 30 < this._endPosition) {
       this.toStart();
+    } else {
+      this.body.setPosition({
+        x: (this.x - this._speed) / 30,
+        y: this.body.getPosition().y
+      });
     }
-
-    this.x -= this._speed;
   }
 
   public toStart() {
-    this.x = this._startPosition;
+    this.body.setPosition({
+      x: this._startPosition / 30,
+      y: this.body.getPosition().y
+    });
   }
 }

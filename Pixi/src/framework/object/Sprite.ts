@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 
 export default class Sprite extends PIXI.Sprite {
+  public body: any;
   constructor(
     frame: string,
     atlas: string = "none",

@@ -11,7 +11,8 @@ export default class App {
       width: 600,
       height: 900,
       maxWidth: 720,
-      maxHeight: 1300
+      maxHeight: 1300,
+      physics: true
     });
 
     app.state.add("Preloader", Preloader);

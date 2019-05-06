@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 
 export default class AnimatedSprite extends PIXI.extras.AnimatedSprite {
+  public body: any;
   constructor(arrName: string[]) {
     const arrTexture: PIXI.Texture[] = [];
     for (const name of arrName) {

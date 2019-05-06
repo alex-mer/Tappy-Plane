@@ -66,7 +66,7 @@ export default class Framework {
       this.load.js(
         "https://cdn.jsdelivr.net/npm/planck-js@0.2.6/dist/planck.min.js",
         () => {
-          this.physics = new World();
+          this.physics = new World(this);
         }
       );
     }
@@ -80,6 +80,10 @@ export default class Framework {
     TWEEN.update();
 
     TimerManager.onUpdate();
+
+    if (this.physics) {
+      this.physics.onUpdate();
+    }
 
     this.state.onUpdate();
   }
