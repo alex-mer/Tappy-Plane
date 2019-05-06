@@ -5,7 +5,7 @@ import Camera from "./../../framework/camera/Camera";
 import Framework from "./../../framework/Framework";
 
 export default class StateBase extends PIXI.Container {
-  protected app: Framework;
+  public app: Framework;
 
   protected camera: Camera;
 

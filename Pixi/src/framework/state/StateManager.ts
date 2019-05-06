@@ -2,8 +2,8 @@ import Framework from "./../../framework/Framework";
 import State from "./StateBase";
 
 export default class StateManager {
+  public currentState: State;
   private _app: Framework;
-  private _currentState: State;
 
   private _states: any = {};
   private _key: string;
@@ -30,13 +30,13 @@ export default class StateManager {
 
     this._destroy();
 
-    this._currentState = new this._states[key].obj(this._app);
-    this._currentState.onCreate();
+    this.currentState = new this._states[key].obj(this._app);
+    this.currentState.onCreate();
   }
 
   public onUpdate(): void {
-    if (this._currentState.onUpdate) {
-      this._currentState.onUpdate();
+    if (this.currentState.onUpdate) {
+      this.currentState.onUpdate();
     }
   }
 
@@ -45,10 +45,10 @@ export default class StateManager {
   }
 
   private _destroy(): void {
-    if (this._currentState) {
-      this._currentState.destroy();
+    if (this.currentState) {
+      this.currentState.destroy();
     }
 
-    this._currentState = null;
+    this.currentState = null;
   }
 }

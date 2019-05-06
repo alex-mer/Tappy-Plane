@@ -10,7 +10,9 @@ export default class SoundManager {
     };
   }
 
-  public play(key: string): void {
+  public play(key: string, volume: number = 1, loop: boolean = false): void {
+    this._sounds[key].snd.loop(loop);
+    this._sounds[key].snd.volume(volume);
     this._sounds[key].snd.play();
   }
 }
