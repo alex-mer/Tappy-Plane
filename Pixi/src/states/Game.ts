@@ -8,6 +8,7 @@ import Rock from "../object/Rock";
 import Plane from "../object/Plane";
 
 import * as TWEEN from "@tweenjs/tween.js";
+import Timer from "../framework/time/Timer";
 
 export default class Game extends StateBase {
   private _groundBottom1: Ground;
@@ -95,6 +96,7 @@ export default class Game extends StateBase {
       this.centerX,
       this.centerY
     );
+    this._plane.body.setStatic();
 
     this._getReady = new Sprite("UI/textGetReady.png", "atlas")
       .addPosition(this.centerX, this.centerY - 230)
@@ -130,9 +132,12 @@ export default class Game extends StateBase {
     this._addExplosion();
     this._addBlackout();
 
-    //MasterAudio.play('music', 'master', 0.5, true);
+    this.app.physics.collide(this._endGame, this);
+
+    this.app.sound.play("music", 0.5);
 
     this.on("pointerdown", this._startGame, this);
+    this.on("pointerdown", this._playSfxTap, this);
   }
 
   public onUpdate(): void {
@@ -152,9 +157,9 @@ export default class Game extends StateBase {
 
   private _startGame(): void {
     this.off("pointerdown", this._startGame, this);
-    this.on("pointerDown", this._plane.onTap, this._plane);
-    //this._plane.body.isStatic = false;
-    //this._plane.body.velocityY = 0;
+    this.on("pointerdown", this._plane.onTap, this._plane);
+    this._plane.body.setLinearVelocity({ x: 0, y: 0 });
+    this._plane.body.setDynamic();
 
     this._state = "game";
     this._score = 0;
@@ -172,45 +177,59 @@ export default class Game extends StateBase {
       { alpha: 0 }
     );
     this._animation([this._currentScore], { alpha: 1 });
-
-    //MasterAudio.play('tap', 'master', 5);
   }
 
-  /*endGame() {
-		this.state = 'end';
-		this.stage.off('pointerDown');
+  private _endGame() {
+    this._state = "end";
+    this.off("pointerdown", this._plane.onTap, this._plane);
 
-		//this.cameras.main.shake(500, 0.05);
+    new TWEEN.Tween(this.camera)
+      .to({ x: [-100, 100, 0] }, 150)
+      .easing(TWEEN.Easing.Quadratic.Out)
+      .repeat(3)
+      .start();
 
-		this.explosion.visible = true;
-		this.explosion.anim.play('explosion');
-		this.explosion.x = this._plane.x;
-		this.explosion.y = this._plane.y;
-		
-		this._plane.alpha = 0;
-		this._plane.x = 300;
-		this._plane.y = 400;
+    this._explosion.visible = true;
+    this._explosion.gotoAndPlay(0);
+    this._explosion.x = this._plane.x;
+    this._explosion.y = this._plane.y;
 
-		MasterAudio.play('crash', 'master', 1);
+    this._plane.alpha = 0;
 
-		this.timer = this.addComponent(new Timer(0.5));
-		this.timer.on('tick', this.restart, this);
-	}
+    this.app.sound.play("crash", 0.3);
+    new Timer(0.5, this._restart.bind(this)).start();
+  }
 
-	restart() {
-		this._blackout.visible = true;
-		this.explosion.visible = false;
-		this._plane.body.isStatic = true;
-		this.animation([this._plane, this._getReady, this._tapRight, this._tapLeft, this._tapAnim, this._topScoreLable],  { alpha: 1 });
-		this.animation([this._currentScore], { alpha: 0 });
-		
-        this._topScoreLable.text = 'Top Score: ' + this.topScore.toString();
+  private _restart(): void {
+    this._blackout.visible = true;
+    this._explosion.visible = false;
+    this._plane.alpha = 1;
+    this._plane.body.setPosition({
+      x: this.centerX / 30,
+      y: this.centerY / 30
+    });
+    this._plane.body.setStatic();
 
-		this._rockTop.toStart();
-		this._rockBottom.toStart();
+    this._animation(
+      [
+        this._plane,
+        this._getReady,
+        this._tapRight,
+        this._tapLeft,
+        this._tapAnim,
+        this._topScoreLable
+      ],
+      { alpha: 1 }
+    );
+    this._animation([this._currentScore], { alpha: 0 });
 
-        this.stage.on('pointerDown', this.startGame, this);
-	}*/
+    this._topScoreLable.text = "Top Score: " + this._topScore.toString();
+
+    this._rockTop.toStart();
+    this._rockBottom.toStart();
+
+    this.on("pointerdown", this._startGame, this);
+  }
 
   private _updateScore() {
     this._score++;
@@ -242,15 +261,17 @@ export default class Game extends StateBase {
       "Explosion/explosion_8.png",
       "Explosion/explosion_9.png"
     ];
+
     this._explosion = new AnimatedSprite(anim)
+      .addStyle(0.5, 2)
       .addPosition(this.centerX, this.centerY)
       .addToStage(this, this.foregroundGroup);
-    this._explosion.animationSpeed = 0.05;
+    this._explosion.animationSpeed = 0.3;
     this._explosion.visible = false;
   }
 
   private _playSfxTap(): void {
-    //azazazaza
+    this.app.sound.play("tap");
   }
 
   private _addBlackout(): void {
