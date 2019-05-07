@@ -7,7 +7,7 @@ public class Rock : MonoBehaviour {
     public float startPosition;
     public float endPosition;
 
-    void Update() {
+    public void Update() {
         if (Config.state == "game") {
             if (transform.position.x < endPosition) {
                 toStart();
@@ -17,7 +17,7 @@ public class Rock : MonoBehaviour {
         }
     }
 
-    void toStart() {
+    public void toStart() {
         transform.position = new Vector3(startPosition, transform.position.y, transform.position.z);
     }
 }
