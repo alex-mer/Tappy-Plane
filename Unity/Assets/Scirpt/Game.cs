@@ -5,9 +5,10 @@ using UnityEngine;
 public class Game : MonoBehaviour {
     public GameObject startScreen;
     public GameObject plane;
+    public GameObject score;
+    public GameObject rock;
 
     void Start() {
-        Debug.Log("zalupa");
         Config config = new Config();
         /*GameObject quad;
         quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
@@ -16,10 +17,16 @@ public class Game : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetMouseButtonUp(0)) {
-            if (Config.state == "game") {
+        if (Config.state == "game") {
+            if(rock.transform.position.x.ToString("0.0") == "0,0") {
+                score.GetComponent<Score>().updateScore();
+            }
+
+            if (Input.GetMouseButtonUp(0)) {
                 plane.GetComponent<Plane>().onTap();
-            } else {
+            }
+        } else {
+            if (Input.GetMouseButtonUp(0)) {
                 _startGame();
             }
         }
