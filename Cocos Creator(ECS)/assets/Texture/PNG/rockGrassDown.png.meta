@@ -1,0 +1,32 @@
+{
+  "ver": "2.3.0",
+  "uuid": "a9b49748-5c3b-492f-a134-914ab134b34f",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "platformSettings": {},
+  "subMetas": {
+    "rockGrassDown": {
+      "ver": "1.0.3",
+      "uuid": "547b5f92-7a35-455a-b45a-712355f024cd",
+      "rawTextureUuid": "a9b49748-5c3b-492f-a134-914ab134b34f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 108,
+      "height": 239,
+      "rawWidth": 108,
+      "rawHeight": 239,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
