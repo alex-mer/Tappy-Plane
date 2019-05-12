@@ -1,6 +1,6 @@
-import Engine from "./Engine";
-import CollisionComponent from "./CollisionComponent";
-import GameComponent from "./GameComponent";
+import Engine from "./../Engine";
+import CollisionComponent from "./../Component/CollisionComponent";
+import GameComponent from "./../Component/GameComponent";
 
 export default class CollisionSystem {
     private _targets: CollisionComponent[] = null;

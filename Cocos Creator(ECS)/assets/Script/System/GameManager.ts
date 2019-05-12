@@ -1,5 +1,5 @@
-import Engine from "./Engine";
-import GameComponent from "./GameComponent";
+import Engine from "./../Engine";
+import GameComponent from "./../Component/GameComponent";
 
 export default class GameManager {
     private _game: GameComponent = null;

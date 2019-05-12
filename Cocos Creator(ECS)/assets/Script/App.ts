@@ -1,16 +1,16 @@
 import Engine from "./Engine";
 
-import MovementSystem from "./MovementSystem";
-import ToStartSystem from "./ToStartSystem";
-import ApplyForceSystem from "./ApplyForceSystem";
-import CollisionSystem from "./CollisionSystem";
-import Gamemanager from "./GameManager";
+import MovementSystem from "./System/MovementSystem";
+import ToStartSystem from "./System/ToStartSystem";
+import ApplyForceSystem from "./System/ApplyForceSystem";
+import CollisionSystem from "./System/CollisionSystem";
+import Gamemanager from "./System/GameManager";
 
-import VelocityComponent from "./VelocityComponent";
-import ToStartComponent from "./ToStartComponent";
-import ApplyForceComponent from "./ApplyForceComponent";
-import CollisionComponent from "./CollisionComponent";
-import GameComponent from "./GameComponent";
+import VelocityComponent from "./Component/VelocityComponent";
+import ToStartComponent from "./Component/ToStartComponent";
+import ApplyForceComponent from "./Component/ApplyForceComponent";
+import CollisionComponent from "./Component/CollisionComponent";
+import GameComponent from "./Component/GameComponent";
 
 const {ccclass, property} = cc._decorator;
 

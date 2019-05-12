@@ -1,6 +1,6 @@
-import Engine from "./Engine";
-import ApplyForceComponent from "./ApplyForceComponent";
-import GameComponent from "./GameComponent";
+import Engine from "./../Engine";
+import ApplyForceComponent from "./../Component/ApplyForceComponent";
+import GameComponent from "./../Component/GameComponent";
 
 export default class ApplyForceSystem {
     private _targets: ApplyForceComponent[] = null;

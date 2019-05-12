@@ -1,6 +1,6 @@
-import Engine from "./Engine";
-import ToStartComponent from "./ToStartComponent";
-import GameComponent from "./GameComponent";
+import Engine from "./../Engine";
+import ToStartComponent from "./../Component/ToStartComponent";
+import GameComponent from "./../Component/GameComponent";
 
 export default class ToStartSystem {
     private _targets: ToStartComponent[] = null;

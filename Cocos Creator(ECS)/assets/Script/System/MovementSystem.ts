@@ -1,6 +1,6 @@
-import Engine from "./Engine";
-import VelocityComponent from "./VelocityComponent";
-import GameComponent from "./GameComponent";
+import Engine from "./../Engine";
+import VelocityComponent from "./../Component/VelocityComponent";
+import GameComponent from "./../Component/GameComponent";
 
 export default class MovementSystem {
     private _targets: VelocityComponent[] = null;
